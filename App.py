@@ -130,13 +130,12 @@ def add_word(word):
         print("You are not logged in")
         return
     data = {
-        "word": word
+        "text": word
     }
     headers = {
         "Authorization": "Bearer " + JWT_TOKEN,
-        "Content-Type": "application/json"
     }
-    response = requests.post(API_URL + "/words", json=data, headers=headers, timeout=None)
+    response = requests.post(API_URL + "/words", json=data, headers=headers)
     if response.status_code == 200:
         print("Word added")
     else:
@@ -208,4 +207,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
